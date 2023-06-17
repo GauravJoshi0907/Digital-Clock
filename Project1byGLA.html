@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Digital Clock</title>
+
+	<style type="text/css">
+            .container{
+                font-size: 60px;
+                color: white;
+                background-color: black;
+                border: 20px solid purple;
+                padding: 18%;
+                margin: auto;
+                margin-top: 2.5%;
+                text-align: center;
+                }
+        </style>
+</head>
+<body>
+
+	<div class="container">
+		DIGITAL CLOCK - <span id="DisplayClock"></span>
+	</div>
+
+	<script>
+
+		setInterval(
+		function clock(){
+			var date= new Date();
+
+			var h= date.getHours();
+			var m= date.getMinutes();
+			var s= date.getSeconds();
+			var session="AM";
+
+			if(h==0)
+			{
+				h=12;
+			}
+			if(h>12)
+			{
+				h=h-12;
+				session="PM";
+			}
+
+			h= (h<10)? "0"+h : h;
+			m= (m<10)? "0"+m : m;
+			s= (s<10)? "0"+s : s;
+			document.getElementById("DisplayClock").innerHTML=h+":"+m+":"+s+" "+ session;
+		 },0);
+
+
+	</script>
+</body>
+</html>
